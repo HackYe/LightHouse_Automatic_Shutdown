@@ -9,7 +9,7 @@ on:
     branches: 
     - main
   schedule:
-    - cron: "15 * * * *"
+    - cron: "10 * * * *"
 
 
 jobs:
@@ -29,6 +29,7 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: "run LH.py"
       env:
+        WebHookKey: ${{secrets.WebHookKey}}
         SecretId: ${{secrets.SecretId}}
         SecretKey: ${{secrets.SecretKey}}
         tgToken: ${{secrets.tgToken}}
