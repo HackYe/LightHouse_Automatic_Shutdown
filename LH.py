@@ -15,7 +15,6 @@ gaojinSatus="告警状态"
 SecretId = os.environ["SecretId"]
 SecretKey = os.environ["SecretKey"]
 WebHookKey = os.environ["WebHookKey"]
-print(WebHookKey)
 
 regions = ["ap-beijing", "ap-chengdu", "ap-guangzhou", "ap-hongkong", "ap-nanjing", "ap-shanghai", "ap-singapore", "ap-tokyo", "eu-moscow", "na-siliconvalley"]
 percent = 0.90  # 流量限额，1表示使用到100%关机，默认设置为95%
