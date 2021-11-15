@@ -129,7 +129,7 @@ def dofetch(id, key, region):
 if __name__ == '__main__':
      bj_time = requests.get(url="http://quan.suning.com/getSysTime.do").json()["sysTime2"]
      doCheck()
-     gaojinTime="流量告警时间：{}".formact(bj_time)
+     gaojinTime="流量告警时间：{}".format(bj_time)
      gaojin=gaojinData+"\n"+"\n"+gaojinSatus+"\n"+"\n"+gaojinResult+"\n"+"\n"+gaojinTime
      sendmessage(gaojin)
     # ck_kafka()
