@@ -14,28 +14,25 @@ gaojinSatus="告警状态"
 
 SecretId = os.environ["SecretId"]
 SecretKey = os.environ["SecretKey"]
+WebHookKey = os.environ["WebHookKey"]
 
 regions = ["ap-beijing", "ap-chengdu", "ap-guangzhou", "ap-hongkong", "ap-nanjing", "ap-shanghai", "ap-singapore", "ap-tokyo", "eu-moscow", "na-siliconvalley"]
-percent = 0.80  # 流量限额，1表示使用到100%关机，默认设置为95%
+percent = 0.90  # 流量限额，1表示使用到100%关机，默认设置为95%
 tgToken = os.environ["tgToken"]
 
 #钉钉机器人告警   
 def sendmessage(message):
     #修改为你自己的钉钉webhook
-    url = "https://oapi.dingtalk.com/robot/send?access_token=******************************************"
+    url = "https://open.feishu.cn/open-apis/bot/v2/hook/{}"(WebHookKey)
     HEADERS = {
         "Content-Type": "application/json ;charset=utf-8"
     }
     String_textMsg = {
-        "msgtype": "text",
-        "text": {"content": message},
-        "at": {
-            "atMobiles": [
-                "15*********"                                    #如果需要@某人，这里写他的手机号
-            ],
-            "isAtAll": 1                                         #如果需要@所有人，这里写1
-        }
-    }
+    "msg_type": "text",
+    "content": {
+                "text": message
+               }
+    } 
     String_textMsg = json.dumps(String_textMsg)
     res = requests.post(url, data=String_textMsg, headers=HEADERS)
     print(res.text)
