@@ -23,7 +23,7 @@ tgToken = os.environ["tgToken"]
 #钉钉机器人告警   
 def sendmessage(message):
     #修改为你自己的钉钉webhook
-    url = "https://open.feishu.cn/open-apis/bot/v2/hook/{}"(WebHookKey)
+    url = "https://open.feishu.cn/open-apis/bot/v2/hook/{}".format(WebHookKey)
     HEADERS = {
         "Content-Type": "application/json ;charset=utf-8"
     }
